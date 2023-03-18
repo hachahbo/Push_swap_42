@@ -6,7 +6,7 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 10:27:11 by hachahbo          #+#    #+#              #
-#    Updated: 2023/03/12 13:32:15 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/03/18 02:00:28 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Werror -Wall -Werror
 SRS = rotation.c swap.c reverse_rotation.c push.c push_swap.c \
-		ft_sort_with_index.c ft_change_the_type.c
+		ft_sort_with_index.c ft_change_the_type.c move_to_stack_b.c longest.c
 OBJS = $(SRS:.c=.o)
 RM = rm -f
 

@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/11 18:56:14 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/14 04:52:36 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@
 
 typedef struct o_list 
 {
-	int  content;
-	int  index;
+	int	content;
+	int	index;
+	int	max;
 	struct o_list *next;
 }t_stack;
 

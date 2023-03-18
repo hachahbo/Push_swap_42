@@ -6,13 +6,25 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:13:26 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/12 13:23:30 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/12 14:03:24 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_list(t_stack **head)
+void	index_sort_list(t_stack *head)
+{
+	int index;
+	
+	index = -1;
+	while(head != NULL)
+	{
+		head->index = index;
+		head = head->next;
+	}
+}
+
+void	sort_list(t_stack **head)
 {
 	t_stack *second = NULL;
 	t_stack *min; 
@@ -35,16 +47,5 @@ void sort_list(t_stack **head)
 		}
 		min->index = i;
 		i++;
-	}
-}
-
-void	index_sort_list(t_stack *head)
-{
-	int index = -1;
-
-	while(head != NULL)
-	{
-		head->index = index;
-		head = head->next;
 	}
 }

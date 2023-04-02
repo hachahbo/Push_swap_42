@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/14 04:52:36 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/02 22:22:13 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,36 @@
 # include <string.h>
 # include <fcntl.h>
 
-// typedef struct s_list
-// {
-// 	int			content;
-// 	int			index;
-// 	struct s_list	*next;
-// }				t_list;
+#ifndef LIBFT_H
+# define LIBFT_H
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+# include <fcntl.h>
 
 typedef struct o_list 
 {
 	int	content;
 	int	index;
 	int	max;
+	int r;
+	int rr;
+	int b_move_b;
+	int b_move_a;
+	int item;
+	int best_move;
+	int i_sort;
+	int mark;
 	struct o_list *next;
 }t_stack;
+
+typedef struct t_stacks
+{
+	t_stack *stack_a;
+	t_stack *stack_b;
+} t_stacks;
+t_stacks stacks;
 
 int				ft_isascii(int c);
 int				ft_isprint(int c);

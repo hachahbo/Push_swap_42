@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:18:09 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/18 18:29:42 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/27 16:13:50 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,27 @@
 int main(int ac, char **av)
 {
 	t_stack 	*new;
+	t_stack		*node;
 	t_stack		*new1;
 	t_stack 	*head_a;
 	t_stack 	*head_help;
-	t_stack		*head_b;
+	t_stack		*head_b =	NULL;
+	t_list	kk;
 	t_stack *longest;
 	t_stack *longest_help;
 	t_list val;
+	t_stack *best_head_a;
+	t_stack *best_head_b;
 	int			*log;
 	int			*tab;
 	int			i;
-	
 	
 	if(ac < 2)
 	{
 		printf("invalid input, add some arguments pls");
 		return(0);
 	}
+	//ft_parcing;
 	val.pos = (int *) malloc (sizeof(int ) * ac -1);
 	tab = tableau(av, ac);
 	i = 0;
@@ -75,35 +79,68 @@ int main(int ac, char **av)
 		ft_lstadd_back(&head_a, new);
 		i++;
 	}
-	// printf("linked list stack a\n");
-	// while(head)
-	// {
-	// 	printf("%d\n", head->content);
-	// 	head = head->next;
-	// }
-	
-
-	
+	node = head_a;
+	index_sort_list(node);
+	node = head_a;
+	sort_list(&node);
 	log = the_array(tab, ac, &val);
 	i = 0;
+	longest =NULL;
 	while(i < val.max_longest)
 	{
 		new1 = ft_lstnew(log[i]);
 		ft_lstadd_back(&longest, new1);
 		i++;
 	}
-	//printf("linked list\n");
-	// while(longest)
-	// {
-	// 	printf("longest : %d\n", longest->content);
-	// 	longest = longest->next;
-	// }
-	head_help =  head_a;
-	longest_help = longest;
-	move_to_stack_b(head_b, head_help, longest_help, ac);
-	
+	head_help = head_a;
+	longest_help = longest;	 
+	move_to_stack_b(&head_b, head_help, longest_help, ac);
+	best_head_a = head_a;
+	best_head_b = head_b;
+	best_move(best_head_a, best_head_b, &kk);
+	move_to_stack_a(&head_a, &head_b, &kk);
+	while(head_b)
+	{
+		printf("stack b :%d\n", head_b->content);
+		head_b = head_b->next;
+	}
+	while(head_a)
+	{
+		printf("|||||||satck a: %d \n", head_a->content);
+		head_a = head_a->next;
+	}
 	
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	// fun(stb, int elem, int *mark)
+	// {
+	// 	while(1)
+	// 	{
+	// 		if(stb -> content == elem)
+	// 			break;
+	// 		a++;
+	// 	}
+	// 	if(a > 2)
+	// 	{
+	// 		*mark++;
+	// 	}
+	// }
 	// while(i < ac - 1)
 	// {
 	// 	printf(" |||||||||| size :%d \n" ,size[i]);

@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/12 15:21:11 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/19 17:08:13 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,19 @@ char *join_to_str(char **av, int ac)
 	}
 	return(result);
 }
+int	free_2d(char **l_str)
+{
+	int	i;
+
+	i = 0;
+	while (l_str[i])
+	{
+		free(l_str[i]);
+		i++;
+	}
+	free(l_str);
+	return (0);
+}
 
 int *tableau(char **av, int ac)
 {
@@ -42,11 +55,13 @@ int *tableau(char **av, int ac)
 	str = join_to_str(av, ac);
 	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
+	free(str);
 	i = 0;
 	while(ult_str[i])
 	{
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
+	free_2d(ult_str);
 	return(t);
 }

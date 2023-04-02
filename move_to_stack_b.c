@@ -81,16 +81,17 @@
 // 	ft_lstadd_back(&head, tmp);
 // }
 
- void move_to_stack_b(t_stack *head_b ,t_stack *head_a, t_stack *longest_help, int ac)
+ void move_to_stack_b(t_stack **head_b ,t_stack *head_a, t_stack *longest_help, int ac)
  {
-	int i ; 
+	int i; 
 
 	i = 0;
 	while(i < ac - 1)
 	{
-		if(head_a == longest_help)
-			ft_rr(head_a, longest_help);
+		if(head_a->content == longest_help->content)
+			ft_rr(&head_a, &longest_help);
 		else
-			ft_pb()
+			ft_pb(head_b, &head_a);
+		i++;
 	}
  }

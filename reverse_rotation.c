@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:18:45 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/10 11:23:25 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/19 15:05:46 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void ft_rra(t_stack **head)
 	b_last->next = NULL; 
 	last->next = *head;
 	*head = last;
+	free(last);
 }
 void ft_rrb(t_stack **head)
 {
@@ -41,6 +42,7 @@ void ft_rrb(t_stack **head)
 	b_last->next = NULL; 
 	last->next = *head;
 	*head = last;
+	free(last);
 }
 
 void ft_rrr(t_stack **head, t_stack **lst)

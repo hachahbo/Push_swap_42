@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:13:26 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/12 14:03:24 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/23 02:47:58 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	index_sort_list(t_stack *head)
 {
-	int index;
+	int i_sort;
 	
-	index = -1;
+	i_sort = -1;
 	while(head != NULL)
 	{
-		head->index = index;
+		head->i_sort = i_sort;
 		head = head->next;
 	}
 }
@@ -29,23 +29,23 @@ void	sort_list(t_stack **head)
 	t_stack *second = NULL;
 	t_stack *min; 
 	int i;
-	i = 0;
 	
+	i = 0;
 	while(i < ft_lstsize(*head))
 	{
 		min = *head;
 		second = min->next;
 		while(second)
 		{
-			if (min->index != -1)
+			if (min->i_sort != -1)
 				min = min->next;
-			if(min->content > second->content  && second->index == -1)
+			if(min->content > second->content  && second->i_sort == -1)
 			{
 				min= second; 
 			}
 			second = second->next;
 		}
-		min->index = i;
+		min->i_sort = i;
 		i++;
 	}
 }

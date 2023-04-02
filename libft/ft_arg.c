@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:00:04 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/14 05:26:46 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:47:40 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,8 +179,8 @@ void ft_ra(t_stack **lst)
 	// if(!*lst || !(*lst)->next)
 	// 	return ;
 	last = ft_lstlast(*lst);
-	last->next = *lst;
 	*lst = (*lst)->next;
+	last->next = *lst;
 	last->next->next = NULL;
 }
 

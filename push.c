@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/24 03:47:14 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/09 14:56:24 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void ft_pa(t_stack **lst_a, t_stack **head_b)
 {
 	t_stack *temp = NULL;
 
-	if(!*lst_a || !(*lst_a)->next || !*head_b || !(*head_b)->next)
+	if(!*head_b)
 		return ;
 	temp = (*head_b);
 	*head_b = (*head_b)->next;
@@ -29,6 +29,8 @@ void ft_pb(t_stack **lst_b, t_stack **head_a)
 
 	// if(!*lst_b || !(*lst_b)->next || !*head_a || !(*head_a)->next)
 	// 	return ;
+	if(!*head_a)
+		return ;
 	temp = (*head_a);
 	*head_a = (*head_a)->next;
 	ft_lstadd_front(lst_b, temp);

@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:13:31 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/14 05:00:08 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/07 08:33:53 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void ft_sa(t_stack **lst)
 	t_stack *first = NULL;
 	t_stack *second = NULL;
 	
-	// if(!*lst || (*lst)->next == NULL)
-	// 	return ;
+	if(!*lst || (*lst)->next == NULL)
+		return ;
 	first = (*lst);
 	second = (*lst)->next;
 	first->next = second->next;

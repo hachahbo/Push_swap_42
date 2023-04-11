@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:18:09 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/27 16:13:50 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:49:15 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,57 @@
 	
 	
 // }
+// int place_of_min(t_stack head, int min)
+// {
+	
+// }
+void ft_sort_the_stack_a(t_stack **stack_a)
+{
+	t_stack *head;
+	t_stack *same;
+	int min;
+	int pos;
+	int size;
+	
+
+	head = (*stack_a);
+	min = find_small(head);
+	size = ft_lstsize(head);
+	pos = find_place(head, min, size);
+	same = (*stack_a);
+	if(pos == 0)
+	{
+		while((*stack_a)->content != min)
+	 		ft_rra(stack_a);
+	}
+	else if(pos == 1)
+	{
+		while((*stack_a)->content != min)
+			ft_ra(stack_a);
+	}
+}
 int main(int ac, char **av)
 {
 	t_stack 	*new;
-	t_stack		*node;
 	t_stack		*new1;
 	t_stack 	*head_a;
 	t_stack 	*head_help;
 	t_stack		*head_b =	NULL;
-	t_list	kk;
 	t_stack *longest;
 	t_stack *longest_help;
 	t_list val;
 	t_stack *best_head_a;
-	t_stack *best_head_b;
+	// t_stack *best_head_b;
 	int			*log;
 	int			*tab;
+	t_ac	kk_ac;
 	int			i;
 	
 	if(ac < 2)
 	{
-		printf("invalid input, add some arguments pls");
+		printf("Errero\n");
 		return(0);
 	}
-	//ft_parcing;
 	val.pos = (int *) malloc (sizeof(int ) * ac -1);
 	tab = tableau(av, ac);
 	i = 0;
@@ -79,10 +106,10 @@ int main(int ac, char **av)
 		ft_lstadd_back(&head_a, new);
 		i++;
 	}
-	node = head_a;
-	index_sort_list(node);
-	node = head_a;
-	sort_list(&node);
+	// node = head_a;
+	// index_sort_list(node);
+	// node = head_a;
+	// sort_list(&node);
 	log = the_array(tab, ac, &val);
 	i = 0;
 	longest =NULL;
@@ -93,22 +120,25 @@ int main(int ac, char **av)
 		i++;
 	}
 	head_help = head_a;
-	longest_help = longest;	 
+	longest_help = longest; 
 	move_to_stack_b(&head_b, head_help, longest_help, ac);
+	kk_ac.ac = ft_lstsize(head_b) - 1;
+	// best_head_b = head_b;
 	best_head_a = head_a;
-	best_head_b = head_b;
-	best_move(best_head_a, best_head_b, &kk);
-	move_to_stack_a(&head_a, &head_b, &kk);
-	while(head_b)
-	{
-		printf("stack b :%d\n", head_b->content);
-		head_b = head_b->next;
-	}
-	while(head_a)
-	{
-		printf("|||||||satck a: %d \n", head_a->content);
-		head_a = head_a->next;
-	}
+	// best_move(best_head_a, best_head_b, &kk);
+	// while(head_a)
+	// {
+	// 	printf("stack a :%d\n", head_a->content);
+	// 	head_a = head_a->next;
+	// }
+	head_a = best_head_a;
+	move_to_stack_a(&head_a, &head_b);
+	ft_sort_the_stack_a(&head_a);
+	// while(head_a)
+	// {
+	// 	printf("|||||||satck a: %d \n", head_a->content);
+	// 	head_a = head_a->next;
+	// }
 	
 
 

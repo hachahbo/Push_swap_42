@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:20:57 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/02 22:17:18 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/10 16:58:17 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,19 @@ typedef struct k_list
 	int *pos;
 	int max_longest;
 	int mark;
+	int ac;
 }t_list;
 
+typedef struct st_ac
+{
+	int ac;
 
+} t_ac;
+
+
+void 	ft_parcing(char  **tab);
+void	ft_error(char **tab);
+int		free_2d(char **l_str);
 void	ft_sa(t_stack **lst);
 void	ft_sb(t_stack **lst);
 void	ft_ss(t_stack **head, t_stack **lst);
@@ -44,9 +54,12 @@ char	*join_to_str(char **av, int a);
 void	move_to_stack_b(t_stack **head_b, t_stack *head_a, t_stack *longest_help, int ac);
 void	ft_reverse_rotate_the_largest(t_stack *head);
 int		*the_array(int *arr, int ac, t_list *val);
-void	best_move(t_stack *stack_a, t_stack *stack_b, t_list *kk);
-void	best_move_a(t_stack *stack_a, t_stack *help_b, t_list *kk);
+void best_move_b(t_stack **stack_b);
+void 	count_sta(t_stack *a, t_stack **b);
+void	move_to_stack_b(t_stack **head_b ,t_stack *head_a, t_stack *longest_help, int ac);
 void	printlist(t_stack *node);
 t_stack *find_the_smallest_moves_a_b(t_stack *stack_b);
-void 	move_to_stack_a(t_stack **stack_a, t_stack **stack_b, t_list *kk);
+void	move_to_stack_a(t_stack **stack_a, t_stack **stack_b);
+int 	find_small(t_stack *node);
+int		find_place(t_stack *stack_a, int m, int size);
 #endif

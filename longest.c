@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:20:42 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/19 17:33:17 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/10 17:51:42 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,8 @@ int *the_array(int *arr , int ac, t_list *val)
 	i = find_index(size, max, ac);
 	longest = fill_the_longest_array(val, arr, i, ac, max);
 	val->max_longest = max;
+	int a = 0;
+	while(a < max)
+		printf("%d\n", longest[a++]);
 	return(longest);
 }

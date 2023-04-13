@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:20:57 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/10 16:58:17 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:03:48 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ void	sort_list(t_stack **head);
 void	index_sort_list(t_stack *head);
 int		*tableau(char **av, int a);
 char	*join_to_str(char **av, int a);
-void	move_to_stack_b(t_stack **head_b, t_stack *head_a, t_stack *longest_help, int ac);
+// void	move_to_stack_b(t_stack **head_b, t_stack *head_a, t_stack *longest_help, int ac);
 void	ft_reverse_rotate_the_largest(t_stack *head);
 int		*the_array(int *arr, int ac, t_list *val);
 void best_move_b(t_stack **stack_b);
 void 	count_sta(t_stack *a, t_stack **b);
-void	move_to_stack_b(t_stack **head_b ,t_stack *head_a, t_stack *longest_help, int ac);
+void	move_to_stack_b(t_stack **head_b ,t_stack **head_a, t_stack *longest_help, int ac);
 void	printlist(t_stack *node);
 t_stack *find_the_smallest_moves_a_b(t_stack *stack_b);
-void	move_to_stack_a(t_stack **stack_a, t_stack **stack_b);
+void move_to_stack_a(t_stack **stack_a, t_stack **stack_b, t_ac ac);
 int 	find_small(t_stack *node);
 int		find_place(t_stack *stack_a, int m, int size);
 #endif

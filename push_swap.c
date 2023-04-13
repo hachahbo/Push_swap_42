@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:18:09 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/10 17:49:15 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:02:42 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,10 @@ int main(int ac, char **av)
 	t_stack 	*new;
 	t_stack		*new1;
 	t_stack 	*head_a;
-	t_stack 	*head_help;
 	t_stack		*head_b =	NULL;
 	t_stack *longest;
 	t_stack *longest_help;
 	t_list val;
-	t_stack *best_head_a;
-	// t_stack *best_head_b;
 	int			*log;
 	int			*tab;
 	t_ac	kk_ac;
@@ -119,25 +116,33 @@ int main(int ac, char **av)
 		ft_lstadd_back(&longest, new1);
 		i++;
 	}
-	head_help = head_a;
 	longest_help = longest; 
-	move_to_stack_b(&head_b, head_help, longest_help, ac);
-	kk_ac.ac = ft_lstsize(head_b) - 1;
-	// best_head_b = head_b;
-	best_head_a = head_a;
-	// best_move(best_head_a, best_head_b, &kk);
+	move_to_stack_b(&head_b, &head_a, longest_help, ac);
 	// while(head_a)
 	// {
 	// 	printf("stack a :%d\n", head_a->content);
 	// 	head_a = head_a->next;
 	// }
-	head_a = best_head_a;
-	move_to_stack_a(&head_a, &head_b);
+	kk_ac.ac = ft_lstsize(head_b) - 1;
+	// best_head_b = head_b;
+	// best_head_a = head_a;
+	// best_head_b = head_b;
+	// best_move(best_head_a, best_head_b, &kk);
+	// // puts("---=----");
+	// head_a = best_head_a;
+	move_to_stack_a(&head_a, &head_b, kk_ac);
 	ft_sort_the_stack_a(&head_a);
+	// puts("a");
 	// while(head_a)
 	// {
 	// 	printf("|||||||satck a: %d \n", head_a->content);
 	// 	head_a = head_a->next;
+	// }
+	// puts("-----------------------");
+	// while(head_b)
+	// {
+	// 	printf("stack b :%d\n", head_b->content);
+	// 	head_b = head_b->next;
 	// }
 	
 

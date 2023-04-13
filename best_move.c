@@ -6,11 +6,31 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:35:58 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/11 10:04:23 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/13 02:15:39 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+t_stack	*link_lst(t_stack **head)
+{
+	t_stack	*first;
+	t_stack	*last;
+
+	first = *head;
+	last = *head;
+	while (last-> next != NULL)
+		last = last-> next;
+	last -> next = first;
+	return (last);
+}
+
+void	d_link(t_stack **stack, t_stack *last, t_stack *reg)
+{
+	while ((*stack)-> content != last-> content)
+		(*stack) = (*stack)-> next;
+	(*stack)-> next = NULL;
+	(*stack) = reg;
+}
 
 void ft_index(t_stack *lst)
 {
@@ -188,8 +208,9 @@ int find_small(t_stack *node)
 // 		kk->mark++;
 // }
 
-int ret(t_stack *stack_a, int min, int size)
+int ret(t_stack *stack_a, int min, int size, t_stack *last, t_stack *reg)
 {
+	d_link(&stack_a, last, reg);
 	int a = 0;
 	while(stack_a)
 	{
@@ -210,12 +231,13 @@ void count_sta_utils(t_stack *a, t_stack *elem, int min, int max)
 	x = 0;
 	j = 0;
 	size = ft_lstsize(a);
-	// printf("elem %d\n", elem -> content);
-	while(a)
+	t_stack *reg = a;
+	t_stack *last = link_lst(&a);
+	while(1)
 	{
 		if(elem -> content < min || elem -> content > max)
 		{
-			elem -> b_move_a = ret(a, min, size);
+			elem -> b_move_a = ret(a, min, size, last, reg);
 			j = 1;
 			break;
 		}
@@ -227,8 +249,6 @@ void count_sta_utils(t_stack *a, t_stack *elem, int min, int max)
 		x++;
 		a = a -> next;
 	}
-	// printf("-> index %d\n", x);
-	// printf("-> j %d\n", j);
 	if (elem -> b_move_a > (size / 2) && j == 1)
 	{
 		elem -> b_move_a = (size - elem -> b_move_a);
@@ -237,10 +257,12 @@ void count_sta_utils(t_stack *a, t_stack *elem, int min, int max)
 	else if (x > (size / 2) && j == 0)
 	{
 		elem ->b_move_a = (size - x);
-		elem -> mark+=1;
+		elem -> mark +=1;
 	}
 	else if (x <= (size / 2) && j == 0)
-		elem ->b_move_a = x;	
+		elem ->b_move_a = x;
+	if(j == 0)
+		d_link(&a, last, reg);
 }
 
 void best_move_b(t_stack **stack_b)
@@ -256,7 +278,7 @@ void best_move_b(t_stack **stack_b)
 	x = 0;
 	while((*stack_b))
 	{
-		if(x < (size / 2))
+		if(x <= (size / 2))
 			(*stack_b) -> b_move_b = x;
 		else
 		{
@@ -280,36 +302,76 @@ void count_sta(t_stack *a, t_stack **b)
 	}
 	(*b) = help;
 }
-t_stack *find_the_smallest_moves_a_b(t_stack *stack_b)
+/*--------*/
+int	go_pro(t_stack *go)
 {
-	t_stack *smallest_move;
-	t_stack *help_b;
+	int	a;
 
-	
-	smallest_move = stack_b;
-	help_b = stack_b;
-	help_b = help_b->next;
-	while(help_b)
+	if (go-> mark == 0 || go-> mark == 2)
 	{
-		smallest_move->best_move = smallest_move->b_move_a + smallest_move->b_move_a;
-		help_b->best_move = help_b->b_move_b + help_b->b_move_a;
-		if(smallest_move->best_move > help_b->best_move)
-			smallest_move = help_b;
-		help_b = help_b->next;
+		if (go -> b_move_a < go -> b_move_b)
+			a = go -> b_move_b;
+		else
+			a = go -> b_move_a;
 	}
-	return(smallest_move);
+	if (go -> mark == 1)
+		a = go -> b_move_a + go -> b_move_b;
+	return (a);
 }
+
+t_stack	*find_best_mov(t_stack *all)
+{
+	t_stack	*head;
+	t_stack	*save;
+
+	head = all-> next;
+	save = NULL;
+	if (all -> next == NULL)
+		return (save = all);
+	save = all;
+	while (head)
+	{
+		if (go_pro(head) < go_pro(all))
+		{
+			save = head;
+			all = head;
+		}
+		head = head -> next;
+	}
+	return (save);
+}
+/*--------*/
+// t_stack *find_the_smallest_moves_a_b(t_stack *stack_b)
+// {
+// 	t_stack *smallest_move;
+// 	t_stack *help_b;
+
+// 	help_b = stack_b;
+// 	while()
+// 	// smallest_move = stack_b;
+// 	// help_b = stack_b;
+// 	// help_b = help_b->next;
+// 	// while(help_b)
+// 	// {
+// 	// 	smallest_move->best_move = smallest_move->b_move_a + smallest_move->b_move_a;
+// 	// 	help_b->best_move = help_b->b_move_b + help_b->b_move_a;
+// 	// 	if(smallest_move->best_move > help_b->best_move)
+// 	// 		smallest_move = help_b;
+// 	// 	help_b = help_b->next;
+// 	// }
+// 	// return(smallest_move);
+// }
 int check_the_smallest_best_move(t_stack *first)
 {
 	if(first->b_move_a > first->b_move_b)
 		return(first->b_move_b);
-	return(first->b_move_a+1);
+	return(first->b_move_a);
 }
 int check_the_biggest_best_move(t_stack *first)
 {
 	if(first->b_move_a < first->b_move_b)
 		return(first->b_move_b);
-	return(first->b_move_a+1);
+	return(first->b_move_a);
 }
 int find_place(t_stack *stack_a, int m, int size)
 {
@@ -327,27 +389,30 @@ int find_place(t_stack *stack_a, int m, int size)
 	return 1;
 }
 
-int find_the_big_number_st_a(t_stack *help_b, t_stack *first)
+int find_the_big_number_st_a(t_stack *help_a, t_stack *first)
 {
-	int m;
-
-	while(1)
+	int m = 0;
+	int size = ft_lstsize(help_a);
+	t_stack *reg = help_a;
+	t_stack *last = link_lst(&help_a);
+	while(size)
 	{
-		if((help_b) ->content < first->content && (help_b)->next->content > first->content)
+		if((help_a) ->content < first->content && (help_a)->next->content > first->content)
 		{
-			m = (help_b) -> next -> content;
+			m = (help_a) -> next -> content;
 			break;
 		}
-		help_b = help_b -> next;
+		help_a = help_a -> next;
+		size--;
 	}
-	return (m);
+	return (d_link(&help_a, last, reg), m);
 }
-int ft_check_the_top(t_stack **stack_a, t_stack **stack_b,  int m)
+int ft_check_the_top(t_stack *stack_a,  int m)
 {
 		
-	if((*stack_a)->content == m)
-		return (0);
-	return (1);
+	if(stack_a->content == m)
+		return (1);
+	return (0);
 }
 void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 {
@@ -366,7 +431,7 @@ void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 		a = find_place(*stack_a , min, ft_lstsize(*stack_a));
 		while(1)
 		{
-			if(help_a -> content == min)
+			if((*stack_a) -> content == min)
 				break;
 			if(a == 0)
 				ft_rra(stack_a);
@@ -387,7 +452,7 @@ void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 		(*stack_b) -> mark = 3;
 	}
 	m = find_the_big_number_st_a(help_a, first);
-	if((*stack_b) -> mark == 1)
+	if(first -> mark == 1)
 	{
 		a = find_place(*stack_a, m, ft_lstsize(*stack_a));
 		while(1)
@@ -411,40 +476,20 @@ void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 				ft_rb(stack_b);
 		}
 	}
-if((*stack_b) -> mark == 2 || (*stack_b) -> mark== 0)
+	if(first -> mark == 2 || first -> mark== 0)
 	{
 		
-	 	if((*stack_b) -> mark== 2)
+	 	if(first -> mark== 2)
 	 	{
 	 		small = check_the_smallest_best_move(first);
 			big =check_the_biggest_best_move(first);
-			while(small)
-			{
-				ft_rr(stack_a, stack_b);
-				small--;
-			}
-			a = ft_check_the_top(stack_a, stack_b,  m);
-			 range = big - small;
-			while(range)
-			{
-				if(a == 0)
-					ft_ra(stack_a);
-				if(a == 1)
-					ft_rb(stack_b);
-				range--;
-			}
-		}
-		if((*stack_b) -> mark == 0)
-	 	{
-	 		small = check_the_smallest_best_move(first);
-			big = check_the_biggest_best_move(first);
+			range = big - small;
 			while(small)
 			{
 				ft_rrr(stack_a, stack_b);
 				small--;
 			}
-			a = ft_check_the_top(stack_a, stack_b,  m);
-			 range = big - small;
+			a = ft_check_the_top(*stack_a,  m);
 			while(range)
 			{
 				if(a == 0)
@@ -454,49 +499,90 @@ if((*stack_b) -> mark == 2 || (*stack_b) -> mark== 0)
 				range--;
 			}
 		}
+		if(first -> mark == 0)
+	 	{
+			// puts("test2");
+	 		small = check_the_smallest_best_move(first);
+			big = check_the_biggest_best_move(first);
+			range = big - small;
+			// printf("------> small -> %d\n", small);
+			// printf("------> big -> %d\n", big);
+			while(small)
+			{
+				ft_rr(stack_a, stack_b);
+				small--;
+			}
+			// printf("------> m -> %d\n", m);
+			// printf("------> mm -> %d\n", (*stack_a) -> content);
+			a = ft_check_the_top(*stack_a,  m);
+			// printf("------> a -> %d\n", a);
+			while(range)
+			{
+				if(a == 0)
+					ft_ra(stack_a);
+				if(a == 1)
+					ft_rb(stack_b);
+				range--;
+			}
+		}
 	}
 	ft_pa(stack_a, stack_b);	
 }
-void move_to_stack_a(t_stack **stack_a, t_stack **stack_b)
+void move_to_stack_a(t_stack **stack_a, t_stack **stack_b, t_ac ac)
 {
-	t_stack *first;
-	t_stack *st_a;
-
-	count_sta(*stack_a, stack_b);
-	best_move_b(stack_b);
-	st_a = *stack_a;
-	t_stack *G1 = *stack_a;
-	while(*stack_b)
-	{
-		first = find_the_smallest_moves_a_b(*stack_b);
-		put_the_number_in_st_a(stack_a, stack_b, first);
-		if(ft_lstsize(*stack_b) == 0)
-			break;
+		t_stack *first;
+		t_stack *first1;
+		t_stack *first2;
+		// puts("------------");
+		// puts("------------");
+		// }
+		// while((*stack_b))
+		// {
+		// 	printf("stack_b |%d|, best_a : %d best_b : %d \n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b);
+		// 	(*stack_b) =(*stack_b) -> next;
+		// }
+		int a = 0;
 		count_sta(*stack_a, stack_b);
-		puts("hamza\n");
 		best_move_b(stack_b);
-	}
-	while(G1)
-	{
-		printf("|	%d	|\n", G1 -> content);
-		G1 = G1 -> next;
-	}
-	t_stack *G = *stack_b;
-	while(G)
-	{
-		printf("stack_b -> %d  | b_move_a : %d | b_move_b : %d mark : %d \n", G -> content, G->b_move_a, G->b_move_b, G -> mark);
-		G = G -> next;
-	}
-	
+		while((*stack_b))
+		{
+			// first = find_the_smallest_moves_a_b(*stack_b);
+			first1 =  (*stack_a);
+			// while((*stack_a))
+			// {
+			// 	printf("stack_a |%d|\n", (*stack_a) -> content);
+			// 	(*stack_a) =(*stack_a) -> next;
+			// }
+			(*stack_a) = first1;
+			first2 =  (*stack_b);
+			// while((*stack_b))
+			// {
+			// 	printf("stack_b |%d|, best_a : %d best_b : %d mark : %d\n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b, (*stack_b) -> mark);
+			// 	(*stack_b) =(*stack_b) -> next;
+			// }
+			(*stack_b) = first2;
+			first = find_best_mov(*stack_b);
+			// printf("--------%d\n", first -> content);
+			put_the_number_in_st_a(stack_a, stack_b, first);	
+			if(ft_lstsize(*stack_b) == 0)
+					break;
+			count_sta(*stack_a, stack_b);
+			best_move_b(stack_b);
+			first1 =  (*stack_a);
+			// while((*stack_a))
+			// {
+			// 	printf("stack_a |%d|\n", (*stack_a) -> content);
+			// 	(*stack_a) =(*stack_a) -> next;
+			// }
+			(*stack_a) = first1;
+			first2 =  (*stack_b);
+			// while((*stack_b))
+			// {
+			// 	printf("stack_b |%d|, best_a : %d best_b : %d mark : %d\n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b, (*stack_b) -> mark);
+			// 	(*stack_b) =(*stack_b) -> next;
+			// }
+			(*stack_b) = first2;
+			a++;
+		}
 } 
 
-
-		// while(st_a)
-		// {
-		// 	printf("stack_a          -> %d\n", st_a -> content);
-		// 	st_a = st_a -> next;
-		// }
-		// puts("------------------");
-		// printf("we have to push : %d\n", first -> content);
-		// puts("------------------");
-		// puts("------------------");

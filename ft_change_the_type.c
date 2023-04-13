@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/09 11:00:11 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/13 02:51:34 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int *tableau(char **av, int ac)
 	char *str;
 
 	str = join_to_str(av, ac);
-	printf("%s\n", str);
+	//printf("%s\n", str);
 	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
 	free(str);

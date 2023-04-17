@@ -6,17 +6,9 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/02 22:22:13 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/16 01:16:33 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <fcntl.h>
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -39,15 +31,9 @@ typedef struct o_list
 	int best_move;
 	int i_sort;
 	int mark;
+	int flag;
 	struct o_list *next;
 }t_stack;
-
-typedef struct t_stacks
-{
-	t_stack *stack_a;
-	t_stack *stack_b;
-} t_stacks;
-t_stacks stacks;
 
 int				ft_isascii(int c);
 int				ft_isprint(int c);
@@ -80,7 +66,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-int				ft_atoi(const char *str);
+long				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 t_stack			*ft_lstnew(int content);

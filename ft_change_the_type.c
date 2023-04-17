@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/13 02:51:34 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/15 15:36:26 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,16 @@ int	free_2d(char **l_str)
 	free(l_str);
 	return (0);
 }
-
-int *tableau(char **av, int ac)
+int ft_size(char **ult_str)
+{
+	int i;
+	
+	i = 0;
+	while(ult_str[i])
+		i++;
+	return(i);
+}
+int *tableau(char **av, int ac, t_ac *st)
 {
 	
 	char **ult_str;
@@ -53,9 +61,10 @@ int *tableau(char **av, int ac)
 	char *str;
 
 	str = join_to_str(av, ac);
-	//printf("%s\n", str);
 	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
+	i = 0;
+	st->size = ft_size(ult_str);
 	free(str);
 	i = 0;
 	ft_parcing(ult_str);

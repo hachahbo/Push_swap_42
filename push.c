@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/13 17:59:49 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:16:43 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,6 @@ void ft_pb(t_stack **lst_b, t_stack **head_a)
 	*head_a = (*head_a)->next;
 	ft_lstadd_front(lst_b, temp);
 }
-// void printlist(t_stack *node)
-// {
-// 	while(node)
-// 	{
-// 		printf("%s\n", node->content);
-// 		node = node->next;
-// 	}
-// }
-
 // int main()
 // {
 // 	t_stack *lst =  NULL;

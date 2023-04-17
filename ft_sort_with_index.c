@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:13:26 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/03/23 02:47:58 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/15 16:26:34 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,16 @@ void	sort_list(t_stack **head)
 				min = min->next;
 			if(min->content > second->content  && second->i_sort == -1)
 			{
-				min= second; 
+				min = second; 
 			}
 			second = second->next;
 		}
 		min->i_sort = i;
 		i++;
+	}
+	while((*head))
+	{
+		printf("satck a: %d, sort : %d\n", (*head)->content, (*head)->i_sort);
+		(*head) = (*head)->next;
 	}
 }

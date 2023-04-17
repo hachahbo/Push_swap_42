@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/09 10:27:33 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/15 15:49:04 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_str_is_alpha(char *str)
 }
 void ft_error(char **tab)
 {
-	printf("Errero\n");
+	printf("Error\n");
 	free_2d(tab);
 	exit(0);
 }
@@ -44,14 +44,31 @@ int	ft_strcmp(char *s1, char *s2)
 		i++;
 	return (c1[i] - c2[i]);
 }
-
+int ft_isnot_space_or_num(char c)
+{
+	if((c >= 33 && c <= 47) || (c >= 58 && c <= 127))
+		return(1);
+	return(0);
+}
 void  ft_parcing(char  **tab)
 {
 	int i;
 	int j;
-	int n;
+	long n;
 	
 	i =  0;
+	j = 0;
+	while(tab[i])
+	{
+		j = 0;
+		while(tab[i][j])
+		{
+			if(ft_isdigit(tab[i][j]) && ft_isnot_space_or_num(tab[i][j + 1]))
+				ft_error(tab);
+			j++;
+		}
+		i++;
+	}
 	while(tab[i])
 	{
 		j = i;
@@ -62,7 +79,7 @@ void  ft_parcing(char  **tab)
 			if(ft_str_is_alpha(tab[i]))
 					ft_error(tab);
 			n = ft_atoi(tab[i]);
-			if(n > INT_MAX || n < INT_MIN || n == -1)
+			if(n > INT_MAX)
 					ft_error(tab);
 			i++;
 		}

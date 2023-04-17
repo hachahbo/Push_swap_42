@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 16:35:58 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/13 02:15:39 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/04/15 14:15:37 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,134 +79,6 @@ int find_small(t_stack *node)
 	}
 	return (a);
 }
-// t_stack	*link_lst(t_stack **head)
-// {
-// 	t_stack	*first;
-// 	t_stack	*last;
-
-// 	first = *head;
-// 	last = *head;
-// 	while (last-> next != NULL)
-// 		last = last-> next;
-// 	last -> next = first;
-// 	return (last);
-// }
-// void	d_link(t_stack **stack, t_stack *last, t_stack *reg)
-// {
-// 	while ((*stack)-> content != last-> content)
-// 		(*stack) = (*stack)-> next;
-// 	(*stack)-> next = NULL;
-// 	(*stack) = reg;
-// }
-
-// void best_move_a(t_stack *stack_a, t_stack *help_b,  t_list *kk)
-// {
-// 	int a;
-// 	t_stack *temp;
-// 	int size_a;
-// 	int size_b;
-// 	int l = 0;
-// 	int h = 0;
-
-// 	kk->mark = 0;
-// 	ft_index(stack_a);
-// 	temp = stack_a;
-// 	a = 1;
-// 	size_a = ft_lstsize(stack_a);
-// 	temp = help_b;
-// 	size_b = ft_lstsize(temp);
-// 	printf("size_a : %d || size_b :%d \n", size_a, size_b);
-// 	if(help_b->b_move_b < size_b / 2)
-// 		kk->mark +=1;
-// 	printf("->>>>> %d\n", help_b -> content);
-// 	if(help_b -> content > find_big(stack_a) || help_b -> content < find_small(stack_a))
-// 	{
-// 		l = find_small(stack_a);
-// 		h = 1;
-// 	}
-// 	while(1)
-// 	{
-// 		if(stack_a -> content == l && h == 1)
-// 			break;
-// 		if(stack_a->content < help_b->content && stack_a->next->content > help_b->content)
-// 			break;
-// 		a++;
-// 		// printf("-> %d\n", a); 
-// 		stack_a = stack_a->next;
-// 	}
-// 	if (a > (size_a / 2))
-// 		a = size_a - a;
-// 	help_b->b_move_a = a;
-// 	printf("a : ->>%d\n", a);
-// 	if(a < size_a / 2)
-// 		kk->mark++;
-// 	printf("kk ->>>>>%d\n",kk->mark);
-// }
-// void best_move_a(t_stack *stack_a, t_stack *help_b,  t_list *kk)
-// {
-// 	int a;
-// 	int size_a;
-// 	int size_b;
-
-// 	if(!stack_a)
-// 		return ;
-// 	kk->mark = 0;
-// 	ft_index(stack_a);
-	
-// 	a = 1;
-// 	size_a = ft_lstsize(stack_a);
-// 	size_b = ft_lstsize(help_b);
-// 	printf("number  %d index %d\n", help_b->content, help_b->index);
-// 	printf("\n size / 2 = %d\n ", size_b/2);
-// 	if(help_b->index < size_b / 2)
-// 		kk->mark +=1;
-// 	printf("mark B :%d\n", kk->mark);
-// 	int max = find_big(stack_a);
-// 	int min = find_small(stack_a);
-// 	int j = 0;
-// 	t_stack *save = stack_a;
-// 	while(save)
-// 	{
-// 		// printf("stack -> a %d\n", save -> content);
-// 		save = save -> next;
-// 	}
-// 	if(help_b->content > max || help_b->content < min)
-// 	{
-// 		help_b -> b_move_a = ret(stack_a, min, size_a, &j);
-// 		if(j != 0)
-// 			kk->mark++;
-// 		return ;
-// 	}
-// 	// 	while(1)
-// 	// 	{
-// 	// 		if(stack_a-> content == min)
-// 	// 			break;
-// 	// 		if(a == 0)
-// 	// 			ft_rra(&stack_a);
-// 	// 		if(a == 1)
-// 	// 			ft_ra(&stack_a);
-// 	// 	}
-// 	// }
-// 	// if(help_b -> content > find_big(stack_a) || help_b -> content < find_small(stack_a))
-// 	// {
-// 	// 	l = find_small(stack_a);
-// 	// 	h = 1;
-// 	// }
-	
-// 	while(1)
-// 	{
-// 		if(stack_a->content < help_b->content && stack_a->next->content > help_b->content)
-// 			break;
-// 		a++;
-// 		stack_a = stack_a->next;
-// 	}
-// 	if (a > (size_a / 2))
-// 		a = size_a - a;
-// 	printf("a == %d\n", a);
-// 	help_b->b_move_a = a;
-// 	if(a < size_a / 2)
-// 		kk->mark++;
-// }
 
 int ret(t_stack *stack_a, int min, int size, t_stack *last, t_stack *reg)
 {
@@ -340,27 +212,6 @@ t_stack	*find_best_mov(t_stack *all)
 	}
 	return (save);
 }
-/*--------*/
-// t_stack *find_the_smallest_moves_a_b(t_stack *stack_b)
-// {
-// 	t_stack *smallest_move;
-// 	t_stack *help_b;
-
-// 	help_b = stack_b;
-// 	while()
-// 	// smallest_move = stack_b;
-// 	// help_b = stack_b;
-// 	// help_b = help_b->next;
-// 	// while(help_b)
-// 	// {
-// 	// 	smallest_move->best_move = smallest_move->b_move_a + smallest_move->b_move_a;
-// 	// 	help_b->best_move = help_b->b_move_b + help_b->b_move_a;
-// 	// 	if(smallest_move->best_move > help_b->best_move)
-// 	// 		smallest_move = help_b;
-// 	// 	help_b = help_b->next;
-// 	// }
-// 	// return(smallest_move);
-// }
 int check_the_smallest_best_move(t_stack *first)
 {
 	if(first->b_move_a > first->b_move_b)
@@ -501,21 +352,15 @@ void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 		}
 		if(first -> mark == 0)
 	 	{
-			// puts("test2");
 	 		small = check_the_smallest_best_move(first);
 			big = check_the_biggest_best_move(first);
 			range = big - small;
-			// printf("------> small -> %d\n", small);
-			// printf("------> big -> %d\n", big);
 			while(small)
 			{
 				ft_rr(stack_a, stack_b);
 				small--;
 			}
-			// printf("------> m -> %d\n", m);
-			// printf("------> mm -> %d\n", (*stack_a) -> content);
 			a = ft_check_the_top(*stack_a,  m);
-			// printf("------> a -> %d\n", a);
 			while(range)
 			{
 				if(a == 0)
@@ -528,59 +373,29 @@ void put_the_number_in_st_a(t_stack **stack_a, t_stack **stack_b,t_stack *first)
 	}
 	ft_pa(stack_a, stack_b);	
 }
-void move_to_stack_a(t_stack **stack_a, t_stack **stack_b, t_ac ac)
+void move_to_stack_a(t_stack **stack_a, t_stack **stack_b)
 {
 		t_stack *first;
 		t_stack *first1;
 		t_stack *first2;
-		// puts("------------");
-		// puts("------------");
-		// }
-		// while((*stack_b))
-		// {
-		// 	printf("stack_b |%d|, best_a : %d best_b : %d \n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b);
-		// 	(*stack_b) =(*stack_b) -> next;
-		// }
 		int a = 0;
 		count_sta(*stack_a, stack_b);
 		best_move_b(stack_b);
 		while((*stack_b))
 		{
-			// first = find_the_smallest_moves_a_b(*stack_b);
 			first1 =  (*stack_a);
-			// while((*stack_a))
-			// {
-			// 	printf("stack_a |%d|\n", (*stack_a) -> content);
-			// 	(*stack_a) =(*stack_a) -> next;
-			// }
 			(*stack_a) = first1;
 			first2 =  (*stack_b);
-			// while((*stack_b))
-			// {
-			// 	printf("stack_b |%d|, best_a : %d best_b : %d mark : %d\n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b, (*stack_b) -> mark);
-			// 	(*stack_b) =(*stack_b) -> next;
-			// }
 			(*stack_b) = first2;
 			first = find_best_mov(*stack_b);
-			// printf("--------%d\n", first -> content);
 			put_the_number_in_st_a(stack_a, stack_b, first);	
 			if(ft_lstsize(*stack_b) == 0)
 					break;
 			count_sta(*stack_a, stack_b);
 			best_move_b(stack_b);
 			first1 =  (*stack_a);
-			// while((*stack_a))
-			// {
-			// 	printf("stack_a |%d|\n", (*stack_a) -> content);
-			// 	(*stack_a) =(*stack_a) -> next;
-			// }
 			(*stack_a) = first1;
 			first2 =  (*stack_b);
-			// while((*stack_b))
-			// {
-			// 	printf("stack_b |%d|, best_a : %d best_b : %d mark : %d\n", (*stack_b) -> content, (*stack_b) -> b_move_a, (*stack_b) -> b_move_b, (*stack_b) -> mark);
-			// 	(*stack_b) =(*stack_b) -> next;
-			// }
 			(*stack_b) = first2;
 			a++;
 		}

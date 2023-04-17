@@ -12,34 +12,44 @@
 
 #include "push_swap.h"
 
-
+void flag_zero(t_stack *head_a)
+{
+	while(head_a)
+	{
+		head_a->flag = 0;
+		head_a = head_a ->next;
+	}
+}
  void move_to_stack_b(t_stack **head_b ,t_stack **head_a, t_stack *longest_help, int ac)
- {
+{
 	int i;
+	t_stack *help;
+	t_stack *stack_a = (*head_a);
+	help = longest_help;
 
+	i = 0;
+	flag_zero(stack_a);
+	stack_a = (*head_a);
+	while(stack_a)
+	{
+		help = longest_help;
+		while(help)
+		{
+			if(help->content == stack_a->content)
+			{
+				stack_a ->flag = 1;
+			}
+			help = help->next; 
+		}
+		stack_a = stack_a->next;
+	}
 	i = 0;
 	while(i < ac - 1)
 	{
-		if((*head_a)->content == longest_help->content)
-		{
-			ft_rr(head_a, &longest_help);
-		}
-		else
-		{
+		if((*head_a)->flag == 1)
+			ft_ra(head_a);
+		else if((*head_a)->flag == 0)
 			ft_pb(head_b, head_a);
-		}
 		i++;
 	}
-	// while(head_a)
-	// {
-	// 	printf("head : %d \n", head_a->content);
-	// 	head_a =head_a->next;
-	// }
-	// puts("--------------");
-	// while((*head_b))
-	// {
-	// 	printf("head_b : %d \n", (*head_b)->content);
-	// 	(*head_b) =(*head_b)->next;
-	// }
-
 }

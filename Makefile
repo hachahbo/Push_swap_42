@@ -6,7 +6,7 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 10:27:11 by hachahbo          #+#    #+#              #
-#    Updated: 2023/04/09 15:52:32 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/04/15 16:07:55 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC = cc
 CFLAGS = -Werror -Wall -Werror
 SRS = rotation.c swap.c reverse_rotation.c push.c push_swap.c \
 		ft_sort_with_index.c ft_change_the_type.c move_to_stack_b.c longest.c\
-		best_move.c ft_parcing.c
+		best_move.c ft_parcing.c ft_sort_with_index.c
 OBJS = $(SRS:.c=.o)
 RM = rm -f
 

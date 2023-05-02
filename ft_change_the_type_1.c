@@ -1,78 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_change_the_type.c                               :+:      :+:    :+:   */
+/*   ft_change_the_type_1.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/15 15:36:26 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:17:48 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char *join_to_str(char **av, int ac)
+void	ft_beta_parcing(char **tab, t_ac *st)
 {
-	char *temp;
-	char *temp2;
-	char *result = ft_strjoin(av[1], " ");
-	int i;
-	i = 2;
-	while(i < ac)
+	int	j;
+
+	j = 0;
+	while (tab[j])
+		check_char(tab[j++]);
+	j = 0;
+	while (tab[0][j])
 	{
-		temp = ft_strjoin(result, av[i]);
-		temp2 = ft_strjoin(temp, " ");
-		free (result);
-		free (temp);
-		result = temp2;
-		i++;
+		if (ft_atoi(tab[0]) < INT_MIN || ft_atoi(tab[0]) > INT_MAX)
+			ft_error(tab);
+		j++;
 	}
-	return(result);
 }
-int	free_2d(char **l_str)
+
+void	check_f(char **av)
 {
 	int	i;
 
 	i = 0;
-	while (l_str[i])
-	{
-		free(l_str[i]);
+	while (av[i])
+	{	
+		if (av[i][0] == 0)
+			error_help(0);
 		i++;
 	}
-	free(l_str);
-	return (0);
 }
-int ft_size(char **ult_str)
-{
-	int i;
-	
-	i = 0;
-	while(ult_str[i])
-		i++;
-	return(i);
-}
-int *tableau(char **av, int ac, t_ac *st)
-{
-	
-	char **ult_str;
-	int *t;
-	int i;
-	char *str;
 
+int	*tableau(char **av, int ac, t_ac *st)
+{
+	char	**ult_str;
+	int		*t;
+	int		i;
+	char	*str;
+
+	check_f(av);
 	str = join_to_str(av, ac);
 	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
-	i = 0;
 	st->size = ft_size(ult_str);
-	free(str);
+	ft_beta_parcing(ult_str, st);
+	if (st->size == 1)
+		exit(0);
 	i = 0;
-	ft_parcing(ult_str);
-	while(ult_str[i])
+	ft_parcing(ult_str, st);
+	while (ult_str[i])
 	{
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
-	free_2d(ult_str);
-	return(t);
+	return (t);
 }

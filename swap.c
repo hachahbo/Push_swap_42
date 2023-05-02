@@ -6,34 +6,21 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:13:31 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/13 18:00:08 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/01 17:43:27 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_sa(t_stack **lst)
+void	ft_sa(t_stack **lst)
 {
-	t_stack *first = NULL;
-	t_stack *second = NULL;
-	
-	printf("sa\n");
-	if(!*lst || (*lst)->next == NULL)
-		return ;
-	first = (*lst);
-	second = (*lst)->next;
-	first->next = second->next;
-	second->next = first;
-	(*lst) = second;
-} 
+	t_stack	*first;
+	t_stack	*second;
 
-void ft_sb(t_stack **lst)
-{
-	t_stack *first;
-	t_stack *second;
-
-	printf("sb\n");
-	if(!*lst || (*lst)->next == NULL)
+	ft_printf("sa\n");
+	first = NULL;
+	second = NULL;
+	if (!*lst || (*lst)->next == NULL)
 		return ;
 	first = (*lst);
 	second = (*lst)->next;
@@ -42,32 +29,42 @@ void ft_sb(t_stack **lst)
 	(*lst) = second;
 }
 
-void ft_ss(t_stack **head, t_stack **lst)
+void	ft_sb(t_stack **lst)
 {
-	printf("ss\n");
-	if(!*lst || !(*lst)->next || !*head || !(*head)->next)
+	t_stack	*first;
+	t_stack	*second;
+
+	ft_printf("sb\n");
+	if (!*lst || (*lst)->next == NULL)
 		return ;
-	ft_sa(head);
-	ft_sb(lst);
+	first = (*lst);
+	second = (*lst)->next;
+	first->next = second->next;
+	second->next = first;
+	(*lst) = second;
 }
 
+void	ft_h_sa(t_stack **lst)
+{
+	t_stack	*first;
+	t_stack	*second;
 
-// int main()
-// {
-// 	t_stack *lst =  NULL;
-// 	char *cont1 = "hamza";
-// 	char *cont2 = "chahboune";
-// 	char *cont3 = "from first to the last";
-// 	t_stack *node1 = ft_lstnew(cont1);
-// 	t_stack *node2 = ft_lstnew(cont2);
-// 	t_stack *node3 = ft_lstnew(cont3);
-// 	ft_lstadd_front(&lst, node2);
-// 	ft_lstadd_front(&lst, node1);
-// 	ft_lstadd_front(&lst, node3);
-// 	printf("-------before rotation \n");
-// 	printlist(lst);
-// 	ft_sa(&lst);
-// 	printf("------after rotation \n");
-// 	printlist(lst);
-// 	return(0);
-// }
+	if (!*lst || (*lst)->next == NULL)
+		return ;
+	first = NULL;
+	second = NULL;
+	first = (*lst);
+	second = (*lst)->next;
+	first->next = second->next;
+	second->next = first;
+	(*lst) = second;
+}
+
+void	ft_ss(t_stack **head, t_stack **lst)
+{
+	ft_printf("ss\n");
+	if (!*lst || !(*lst)->next || !*head || !(*head)->next)
+		return ;
+	ft_h_sa(head);
+	ft_h_sb(lst);
+}

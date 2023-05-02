@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 14:28:22 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 22:46:25 by hachahbo         ###   ########.fr       */
+/*   Created: 2022/11/05 15:50:28 by hachahbo          #+#    #+#             */
+/*   Updated: 2022/11/10 14:19:57 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isdigit(int c)
+int	ft_putchar(char c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	return (write(1, &c, 1));
 }

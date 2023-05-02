@@ -16,7 +16,7 @@ OBJS = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME) : $(OBJS)
-	ar rc $(NAME) $(OBJS)
+	@ar rc $(NAME) $(OBJS)
 
 %.o: %.c libft.h
 	cc -Wall -Wextra -Werror -c $<

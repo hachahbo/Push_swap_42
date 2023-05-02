@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/16 01:16:33 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/01 18:19:49 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,21 @@
 # include <string.h>
 # include <fcntl.h>
 
-typedef struct o_list 
+typedef struct o_list
 {
-	int	content;
-	int	index;
-	int	max;
-	int r;
-	int rr;
-	int b_move_b;
-	int b_move_a;
-	int item;
-	int best_move;
-	int i_sort;
-	int mark;
-	int flag;
-	struct o_list *next;
+	int				content;
+	int				index;
+	int				max;
+	int				r;
+	int				rr;
+	int				b_move_b;
+	int				b_move_a;
+	int				item;
+	int				best_move;
+	int				i_sort;
+	int				mark;
+	int				flag;
+	struct o_list	*next;
 }t_stack;
 
 int				ft_isascii(int c);
@@ -66,7 +66,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-long				ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 char			*ft_itoa(int n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 t_stack			*ft_lstnew(int content);

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 14:28:22 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 22:46:25 by hachahbo         ###   ########.fr       */
+/*   Created: 2022/11/05 16:04:45 by hachahbo          #+#    #+#             */
+/*   Updated: 2022/11/12 15:46:41 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <libc.h>
+# include <stdarg.h>
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+int	ft_printf(const char *str, ...);
+int	ft_putchar(char c);
+int	ft_putnbr(long nb);
+int	ft_putstr(char *str);
+int	ft_put_hex(unsigned int num, char c);
+int	ft_print_hex(long long num, char c);
+int	ft_putptr(unsigned long int num);
+
+#endif

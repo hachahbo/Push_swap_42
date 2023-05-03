@@ -6,24 +6,17 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 14:08:28 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/02 19:12:44 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-void	ft_error(char **tab)
-{
-	printf("Error\n");
-	free_2d(tab);
-	exit(-1);
-}
-
-int	ft_check_double(int *tab, t_ac *st)
+int	ft_check_double(int *tab, s_ac *st)
 {
 	int	a;
 	int	b;
-	
+
 	a = 0;
 	while (a < st->size)
 	{
@@ -39,7 +32,7 @@ int	ft_check_double(int *tab, t_ac *st)
 	return (0);
 }
 
-void	ft_parcing(char **tab, t_ac *st)
+void	ft_parcing(char **tab, s_ac *st)
 {
 	int		i;
 	int		*arr;
@@ -56,5 +49,4 @@ void	ft_parcing(char **tab, t_ac *st)
 	}
 	if (ft_check_double(arr, st))
 		ft_error(tab);
-	free(arr);
 }

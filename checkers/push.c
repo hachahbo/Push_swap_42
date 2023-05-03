@@ -6,11 +6,12 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 17:35:01 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:48:32 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
+
 
 void	ft_pa(t_stack **lst_a, t_stack **head_b)
 {
@@ -19,7 +20,6 @@ void	ft_pa(t_stack **lst_a, t_stack **head_b)
 	temp = NULL;
 	if (!*head_b)
 		return ;
-	ft_printf("pa\n");
 	if (!*head_b)
 		return ;
 	temp = (*head_b);
@@ -34,7 +34,6 @@ void	ft_pb(t_stack **lst_b, t_stack **head_a)
 	temp = NULL;
 	if (!*head_a || !(*head_a)->next)
 		return ;
-	ft_printf("pb\n");
 	if (!*head_a)
 		return ;
 	temp = (*head_a);

@@ -6,26 +6,24 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 10:27:11 by hachahbo          #+#    #+#              #
-#    Updated: 2023/04/15 16:07:55 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/03 02:05:07 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS =  
-	 
+
 NAME = push_swap
 CC = cc
 CFLAGS = -Werror -Wall -Werror
-SRS = rotation.c swap.c reverse_rotation.c push.c push_swap.c \
-		ft_sort_with_index.c ft_change_the_type.c move_to_stack_b.c longest.c\
-		best_move.c ft_parcing.c ft_sort_with_index.c
-OBJS = $(SRS:.c=.o)
+
+OBJS = rotation.o swap.o reverse_rotation.o push.o push_swap.o \
+		ft_change_the_type_1.o move_to_stack_b.o longest_1.o\
+		best_move.o ft_parcing.o  sort_the_five_three.o longest_2.o ft_change_the_type_2.o \
+		instraction.o ft_parcing2.o f_helper1.o f_helper2.o f_helper3.o f_helper4.o
+
 RM = rm -f
 
-LIBFT_DIR = ./libft
-LIBFT_LIB = $(LIBFT_DIR)/libft.a
-
-
 all : $(NAME)
+	
 		@echo "																		  "
 		@echo "██████╗░██╗░░░██╗░██████╗██╗░░██╗░██████╗░██╗░░░░░░░██╗░█████╗░██████╗░"
 		@echo "██╔══██╗██║░░░██║██╔════╝██║░░██║██╔════╝░██║░░██╗░░██║██╔══██╗██╔══██╗"
@@ -34,17 +32,25 @@ all : $(NAME)
 		@echo "██║░░░░░╚██████╔╝██████╔╝██║░░██║██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░"
 		@echo "╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░"
 		@echo "																		  "
-$(NAME):$(OBJS)
+#$(NAME):$(OBJS)
+
 $(NAME) : $(OBJS)
-	@make -C $(LIBFT_DIR)
-	$(CC) $(CFLAGS) $^ $(LIBFT_LIB) -o $@
-%.o : %.c push_swap.h
-	$(CC) $(CFLAGS) -c $< -o $@
-bonus : all
+	@cd libft && make 
+	@cd ft_printf && make 
+	@$(CC) $(CFLAGS) $(OBJS) ./ft_printf/libftprintf.a ./libft/libft.a -o $(NAME)
+bonus :
+	@cd checkers && make
+	
+$(OBJS) : push_swap.h
+
 clean :
-	@make -C $(LIBFT_DIR) $@
-	$(RM) $(OBJS)
+	@cd checkers && make clean 
+	@cd libft && make clean
+	@cd ft_printf && make clean
+	@$(RM) $(OBJS)
+
 fclean : clean
-	@make -C $(LIBFT_DIR) $@
-	$(RM) $(NAME)
+	@$(RM) checker
+	@$(RM) $(NAME)
+	
 re : fclean all

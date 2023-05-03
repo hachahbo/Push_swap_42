@@ -6,14 +6,14 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 04:14:20 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/04/15 14:18:23 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/01 22:48:22 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "limits.h"
-int	
-is_overflow(long int prv, long int res)
+
+int	is_overflow(long int prv, long int res)
 {
 	if (res / 10 != prv)
 		return (1);
@@ -35,7 +35,7 @@ void	ft_sign_space(char *str, long *i, long *sign)
 long	ft_atoi(const char *str)
 {
 	long int	res;
-	long			sign;
+	long		sign;
 	long		i;
 	long int	prv;
 
@@ -48,7 +48,7 @@ long	ft_atoi(const char *str)
 		prv = res;
 		res = res * 10 + str[i++] - '0';
 		if (is_overflow(prv, res) == 1)
-				return (LONG_MAX);
+			return (LONG_MAX);
 	}
 	return (res * sign);
 }

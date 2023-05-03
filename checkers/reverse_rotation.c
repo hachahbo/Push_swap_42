@@ -6,11 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:18:45 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 17:29:26 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/03 00:48:23 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	ft_rra(t_stack **head)
 {
@@ -29,7 +29,6 @@ void	ft_rra(t_stack **head)
 	last->next = *head;
 	b_last->next = NULL;
 	*head = last;
-	ft_printf("rra\n");
 }
 
 void	ft_rrb(t_stack **head)
@@ -52,12 +51,10 @@ void	ft_rrb(t_stack **head)
 		b_last->next = NULL;
 		*head = last;
 	}
-	ft_printf("rrb\n");
 }
 
 void	ft_rrr(t_stack **head, t_stack **lst)
 {
-	ft_printf("rrr\n");
 	if (!*lst || !(*lst)->next || !*head || !(*head)->next)
 		return ;
 	ft_rra_a(head);

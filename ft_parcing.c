@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 14:08:28 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:22:57 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_check_double(int *tab, t_ac *st)
 {
 	int	a;
 	int	b;
-	
+
 	a = 0;
 	while (a < st->size)
 	{

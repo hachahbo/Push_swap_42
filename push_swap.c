@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:18:09 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 15:33:26 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:42:34 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,24 +42,35 @@ void	ft_sort_the_stack_a(t_stack **stack_a)
 void	make_list(t_stack **head, int *arr, int size)
 {
 	int		i;
-	t_stack *new;
-	t_stack *tmp;
-	
+	t_stack	*new;
+	t_stack	*tmp;
+
 	i = 0;
 	tmp = *head ;
 	while (i < size)
 	{
 		new = ft_lstnew(arr[i]);
-		printf("addres : %p\n" ,new);
 		ft_lstadd_back(head, new);
 		i++;
 	}
-	printf("addres : %d\n" ,(*head)->next->content);
-	
-//	free(new);
 }
 
-void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
+void	ft_lstclear(t_stack **lst)
+{
+	t_stack	*temp;
+	t_stack	*freed;
+
+	temp = *lst;
+	while (temp != NULL)
+	{
+		freed = temp;
+		temp = temp->next;
+		free(freed);
+	}
+	*lst = NULL;
+}
+
+int	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 {
 	t_ac	st;
 	t_stack	*longest;
@@ -72,6 +83,7 @@ void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 	if (st.size <= 5)
 		check_five_three(&head_a, &head_b, &st);
 	tab = the_array(tab, &val, &st);
+	free(val.pos);
 	longest = NULL;
 	make_list(&longest, tab, val.max_longest);
 	free(tab);
@@ -83,26 +95,20 @@ void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 	}
 	move_to_stack_a(&head_a, &head_b);
 	ft_sort_the_stack_a(&head_a);
-	printlist(head_a);
-	free(val.pos);
+	ft_lstclear(&head_a);
+	return (0);
 }
-
-// void	f()
-// {
-// 	system("leaks push_swap");
-// }
 
 int	main(int ac, char **av)
 {
 	t_stack	*head_a;
 	t_stack	*head_b;
 
-
-	// atexit(f);
 	if (ac < 2)
 		return (0);
 	head_a = NULL;
 	head_b = NULL;
 	ft_push_swap(head_a, head_b, ac, av);
+	ft_lstclear(&head_a);
 	return (0);
 }

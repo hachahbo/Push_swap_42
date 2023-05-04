@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 14:06:49 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:33:52 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,6 @@ int	*tableau(char **av, int ac, t_ac *st)
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
-	i = 0;
-	while (ult_str[i])
-	{
-		free(ult_str[i]);
-		i++;
-	}
-	free(ult_str);
+	ft_free(ult_str);
 	return (t);
 }

@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:20:42 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 14:05:36 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:06:59 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ int	*fill_the_longest_array(t_list *val, int *arr, int i, int *t)
 	}
 	x--;
 	longest[x] = arr[j];
+	free(arr);
 	return (longest);
 }
 

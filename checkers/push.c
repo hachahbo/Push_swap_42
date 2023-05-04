@@ -6,12 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 00:48:32 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:45:45 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
 
 void	ft_pa(t_stack **lst_a, t_stack **head_b)
 {

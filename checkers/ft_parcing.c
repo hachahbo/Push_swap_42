@@ -6,13 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 19:12:44 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:51:37 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	ft_check_double(int *tab, s_ac *st)
+int	ft_check_double(int *tab, t_na *st)
 {
 	int	a;
 	int	b;
@@ -32,7 +32,7 @@ int	ft_check_double(int *tab, s_ac *st)
 	return (0);
 }
 
-void	ft_parcing(char **tab, s_ac *st)
+void	ft_parcing(char **tab, t_na *st)
 {
 	int		i;
 	int		*arr;
@@ -49,4 +49,5 @@ void	ft_parcing(char **tab, s_ac *st)
 	}
 	if (ft_check_double(arr, st))
 		ft_error(tab);
+	free(arr);
 }

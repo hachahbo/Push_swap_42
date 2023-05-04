@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:20:57 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/03 02:05:26 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:44:33 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct st_ac
 	int	x;
 	int	j;
 }	t_ac;
- 
+
 void	ft_parcing(char **tab, t_ac *st);
 void	ft_error(char **tab);
 int		free_2d(char **l_str);
@@ -92,6 +92,7 @@ int		free_2d(char **l_str);
 int		ft_size(char **ult_str);
 void	error_help(int a);
 void	check_char(char *c);
+void	ft_free(char **str);
 t_stack	*link_lst(t_stack **head);
 void	d_link(t_stack **stack, t_stack *last, t_stack *reg);
 void	ft_index(t_stack *lst);

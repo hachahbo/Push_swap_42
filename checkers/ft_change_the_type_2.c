@@ -6,19 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 16:47:55 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 19:09:30 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:55:15 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-
-void error_help(int a)
-{
-	(void)a;
-	ft_printf("Error\n");
-	exit(-1);
-}
 
 void	check_onlu_s(char *str)
 {

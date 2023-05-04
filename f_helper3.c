@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:07:04 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 23:46:28 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:45:36 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ void	count_sta(t_stack *a, t_stack **b)
 	(*b) = help;
 }
 
-int	go_pro(t_stack *go)
+int	check_m(t_stack *lst)
 {
-	int	a;
+	int	i;
 
-	if (go-> mark == 0 || go-> mark == 2)
+	if (lst-> mark == 0 || lst-> mark == 2)
 	{
-		if (go -> b_move_a < go -> b_move_b)
-			a = go -> b_move_b;
+		if (lst -> b_move_a < lst -> b_move_b)
+			i = lst -> b_move_b;
 		else
-			a = go -> b_move_a;
+			i = lst -> b_move_a;
 	}
-	if (go -> mark == 1)
-		a = go -> b_move_a + go -> b_move_b;
-	return (a);
+	if (lst -> mark == 1)
+		i = lst -> b_move_a + lst -> b_move_b;
+	return (i);
 }
 
 t_stack	*find_best_mov(t_stack *all)
@@ -54,7 +54,7 @@ t_stack	*find_best_mov(t_stack *all)
 	save = all;
 	while (head)
 	{
-		if (go_pro(head) < go_pro(all))
+		if (check_m(head) < check_m(all))
 		{
 			save = head;
 			all = head;

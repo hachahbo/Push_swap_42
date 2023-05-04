@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:25:26 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 21:39:35 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:45:06 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*ft_lstnew(int content)
 	return (tmp);
 }
 
-t_stack	*ft_lstnew_char(char  *content)
+t_stack	*ft_lstnew_char(char *content)
 {
 	t_stack	*tmp;
 

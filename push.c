@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 17:35:01 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:19:12 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,17 @@ void	ft_pb(t_stack **lst_b, t_stack **head_a)
 	temp = (*head_a);
 	*head_a = (*head_a)->next;
 	ft_lstadd_front(lst_b, temp);
+}
+
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

@@ -6,7 +6,7 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/03 02:04:41 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/04 16:39:36 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS = -Werror -Wall -Werror
 
 OBJS = ft_checker.o rotation.o swap.o reverse_rotation.o push.o \
 		ft_change_the_type_1.o ft_parcing.o  ft_change_the_type_2.o \
-		instraction.o ft_parcing2.o get_next_line.o get_next_line_utils.o
+		instraction.o ft_parcing2.o get_next_line.o get_next_line_utils.o \
+		help_checker.o help2_checker.o
 RM = rm -f
 
 all : $(NAME)

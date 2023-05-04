@@ -6,13 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 18:59:07 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:53:10 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ft_beta_parcing(char **tab, s_ac *st)
+void	ft_beta_parcing(char **tab, t_na *st)
 {
 	int	j;
 
@@ -41,7 +41,20 @@ void	check_f(char **av)
 	}
 }
 
-int	*tableau(char **av, int ac, s_ac *st)
+void	ft_free(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+}
+
+int	*tableau(char **av, int ac, t_na *st)
 {
 	char	**ult_str;
 	int		*t;
@@ -53,6 +66,7 @@ int	*tableau(char **av, int ac, s_ac *st)
 	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
 	st->size = ft_size(ult_str);
+	free(str);
 	ft_beta_parcing(ult_str, st);
 	if (st->size == 1)
 		exit(0);
@@ -63,12 +77,12 @@ int	*tableau(char **av, int ac, s_ac *st)
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
+	ft_free(ult_str);
 	return (t);
 }
 
 void	ft_error(char **tab)
 {
 	printf("Error\n");
-	//free_2d(tab);
 	exit(-1);
 }

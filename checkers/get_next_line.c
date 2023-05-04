@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 19:48:52 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 20:31:00 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:46:24 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,20 +49,3 @@ char	*get_next_line(int fd)
 	str = ft_new_str(str);
 	return (line);
 }
-
-// int main()
-// {
-// 	int fd1;
-	
-// 	fd1 = open("text.txt", O_RDWR);
-// 	char *c;
-	
-// 	while(1)
-// 	{
-// 		c = get_next_line(fd1);
-// 		if(c == NULL)
-// 			break;
-// 		printf("%s", c);
-// 	}
-// 	return(0);
-// }

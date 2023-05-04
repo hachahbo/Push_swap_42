@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/02 21:36:48 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:43:57 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,6 @@ t_stack			*ft_lstlast(t_stack *lst);
 void			ft_lstadd_back(t_stack **lst, t_stack *new);
 int				ft_lstsize(t_stack *lst);
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-t_stack			*ft_lstnew_char(char  *content);
+t_stack			*ft_lstnew_char(char *content);
 
 #endif

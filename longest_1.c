@@ -6,7 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:20:42 by hachahbo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:06:59 by hachahbo         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/01 16:14:08 by hachahbo         ###   ########.fr       */
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +97,10 @@ int	*fill_the_longest_array(t_list *val, int *arr, int i, int *t)
 	}
 	x--;
 	longest[x] = arr[j];
+<<<<<<< HEAD
 	free(arr);
+=======
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 	return (longest);
 }
 
@@ -115,6 +122,9 @@ int	*the_array(int *arr, t_list *val, t_ac *st)
 	t[1] = st->size;
 	longest = fill_the_longest_array(val, arr, i, t);
 	val->max_longest = max;
+<<<<<<< HEAD
 	free(size);
+=======
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 	return (longest);
 }

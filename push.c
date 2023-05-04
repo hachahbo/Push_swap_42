@@ -6,7 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:19:12 by hachahbo         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/01 17:35:01 by hachahbo         ###   ########.fr       */
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +45,7 @@ void	ft_pb(t_stack **lst_b, t_stack **head_a)
 	*head_a = (*head_a)->next;
 	ft_lstadd_front(lst_b, temp);
 }
+<<<<<<< HEAD
 
 void	ft_free(char **str)
 {
@@ -54,3 +59,5 @@ void	ft_free(char **str)
 	}
 	free(str);
 }
+=======
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611

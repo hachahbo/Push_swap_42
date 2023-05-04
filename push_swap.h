@@ -6,7 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:20:57 by hachahbo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:44:33 by hachahbo         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/01 23:50:27 by hachahbo         ###   ########.fr       */
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +96,10 @@ int		free_2d(char **l_str);
 int		ft_size(char **ult_str);
 void	error_help(int a);
 void	check_char(char *c);
+<<<<<<< HEAD
 void	ft_free(char **str);
+=======
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 t_stack	*link_lst(t_stack **head);
 void	d_link(t_stack **stack, t_stack *last, t_stack *reg);
 void	ft_index(t_stack *lst);

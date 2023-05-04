@@ -6,7 +6,11 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:25:26 by hachahbo          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:45:06 by hachahbo         ###   ########.fr       */
+=======
+/*   Updated: 2023/05/01 22:46:09 by hachahbo         ###   ########.fr       */
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +27,7 @@ t_stack	*ft_lstnew(int content)
 	tmp->next = NULL;
 	return (tmp);
 }
+<<<<<<< HEAD
 
 t_stack	*ft_lstnew_char(char *content)
 {
@@ -35,3 +40,5 @@ t_stack	*ft_lstnew_char(char *content)
 	tmp->next = NULL;
 	return (tmp);
 }
+=======
+>>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611

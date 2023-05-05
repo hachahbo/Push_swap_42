@@ -6,7 +6,7 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 10:27:11 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/05 15:54:10 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/05 15:58:12 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,5 +52,7 @@ clean :
 fclean : clean
 	@$(RM) checker
 	@$(RM) $(NAME)
+	@cd libft && make fclean
+	@cd ft_printf && make fclean
 	
 re : fclean all

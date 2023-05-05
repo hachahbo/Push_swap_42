@@ -6,11 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:22:57 by hachahbo         ###   ########.fr       */
-=======
-/*   Updated: 2023/05/01 18:14:28 by hachahbo         ###   ########.fr       */
->>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +56,5 @@ void	ft_parcing(char **tab, t_ac *st)
 	}
 	if (ft_check_double(arr, st))
 		ft_error(tab);
-<<<<<<< HEAD
 	free(arr);
-=======
->>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 }

@@ -6,11 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 10:20:07 by hachahbo          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2023/05/04 15:43:57 by hachahbo         ###   ########.fr       */
-=======
-/*   Updated: 2023/05/01 18:19:49 by hachahbo         ###   ########.fr       */
->>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +21,7 @@
 typedef struct o_list
 {
 	int				content;
-<<<<<<< HEAD
 	char			*cnt;
-=======
->>>>>>> b47adee2253874da46db1fb3d570a40ec4d55611
 	int				index;
 	int				max;
 	int				r;

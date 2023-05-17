@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:49:50 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 15:48:32 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 17:19:38 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	flag_zero(t_stack *head_a)
 	while (head_a)
 	{
 		head_a->flag = 0;
-		head_a = head_a ->next;
+		head_a = head_a->next;
 	}
 }
 

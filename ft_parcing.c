@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:22:57 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 23:25:49 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(char **tab)
 {
-	printf("Error\n");
+	ft_printf("Error\n");
 	free_2d(tab);
 	exit(-1);
 }
@@ -44,10 +44,15 @@ void	ft_parcing(char **tab, t_ac *st)
 	int		i;
 	int		*arr;
 
-	ft_parcing_1(tab, st);
-	ft_parcing_2(tab, st);
+	ft_parcing_1(tab);
+	ft_parcing_2(tab);
 	ft_parcing_3(tab);
 	arr = malloc(sizeof(int) * st->size);
+	if (!arr)
+	{
+		free(arr);
+		return ;
+	}
 	i = 0;
 	while (tab[i])
 	{

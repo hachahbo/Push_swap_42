@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 17:39:01 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 16:40:25 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:48:10 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ void	ft_g_n_l(t_stack **lst)
 	}
 }
 
-void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
+void	instractions(t_stack **head_a, t_stack **head_b, t_stack *lst)
+{
+	ft_instraction_1(head_a, head_b, lst);
+}
+
+int	ft_checker(t_stack *head_a, t_stack *head_b, int ac, char **av)
 {
 	t_na	st;
 	t_stack	*lst;
@@ -39,9 +44,9 @@ void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 	lst = NULL;
 	ft_g_n_l(&lst);
 	free(tab);
-	ft_instraction_1(&head_a, &head_b, lst);
-	ft_instraction_2(&head_a, &head_b, lst);
-	ft_check_sort(head_a);
+	instractions(&head_a, &head_b, lst);
+	ft_check_sort(head_a, head_b);
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -53,5 +58,5 @@ int	main(int ac, char **av)
 	head_b = NULL;
 	if (ac < 2)
 		return (0);
-	ft_push_swap(head_a, head_b, ac, av);
+	ft_checker(head_a, head_b, ac, av);
 }

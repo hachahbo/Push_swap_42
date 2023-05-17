@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:37:31 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 16:40:46 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/14 05:46:09 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,21 @@ void	check_instraction(char *c)
 	free(str);
 }
 
-void	ft_instraction_1(t_stack **head_a, t_stack **head_b, t_stack *lst)
+void	ft_instraction_2(t_stack **head_a, t_stack **head_b, t_stack *lst)
+{	
+	if (ft_strcmp(lst->cnt, "rb\n") == 0)
+		ft_rb(head_b);
+	else if (ft_strcmp(lst->cnt, "rr\n") == 0)
+		ft_rr(head_a, head_b);
+	else if (ft_strcmp(lst->cnt, "rra\n") == 0)
+		ft_rra(head_a);
+	else if (ft_strcmp(lst->cnt, "rrb\n") == 0)
+		ft_rrb(head_b);
+	else if (ft_strcmp(lst->cnt, "rrr\n") == 0)
+		ft_rrr(head_a, head_b);
+}
+
+t_stack	*ft_instraction_1(t_stack **head_a, t_stack **head_b, t_stack *lst)
 {	
 	while (lst)
 	{
@@ -81,29 +95,14 @@ void	ft_instraction_1(t_stack **head_a, t_stack **head_b, t_stack *lst)
 		else if (ft_strcmp(lst->cnt, "sa\n") == 0)
 			ft_sa(head_a);
 		else if (ft_strcmp(lst->cnt, "sb\n") == 0)
-			ft_sa(head_b);
+			ft_sb(head_b);
 		else if (ft_strcmp(lst->cnt, "ss\n") == 0)
 			ft_ss(head_a, head_b);
 		else if (ft_strcmp(lst->cnt, "ra\n") == 0)
 			ft_ra(head_a);
+		else
+			ft_instraction_2(head_a, head_b, lst);
 		lst = lst->next;
 	}
-}
-
-void	ft_instraction_2(t_stack **head_a, t_stack **head_b, t_stack *lst)
-{	
-	while (lst)
-	{
-		if (ft_strcmp(lst->cnt, "rb\n") == 0)
-			ft_rb(head_b);
-		else if (ft_strcmp(lst->cnt, "rr\n") == 0)
-			ft_rr(head_a, head_b);
-		else if (ft_strcmp(lst->cnt, "ra\n") == 0)
-			ft_ra(head_a);
-		else if (ft_strcmp(lst->cnt, "rb\n") == 0)
-			ft_rb(head_b);
-		else if (ft_strcmp(lst->cnt, "rrr\n") == 0)
-			ft_rrr(head_a, head_b);
-		lst = lst->next;
-	}
+	return (lst);
 }

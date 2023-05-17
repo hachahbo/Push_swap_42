@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 18:43:43 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:19:12 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:34:56 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	ft_pa(t_stack **lst_a, t_stack **head_b)
 	if (!*head_b)
 		return ;
 	ft_printf("pa\n");
-	if (!*head_b)
-		return ;
 	temp = (*head_b);
 	*head_b = (*head_b)->next;
 	ft_lstadd_front(lst_a, temp);

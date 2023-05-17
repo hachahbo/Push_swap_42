@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 18:02:11 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:51:55 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 22:58:05 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_isnot_space_or_num(char c)
 	return (0);
 }
 
-void	ft_parcing_1(char **tab, t_na *st)
+void	ft_parcing_1(char **tab)
 {
 	int	i;
 	int	j;
@@ -56,7 +56,7 @@ void	ft_parcing_1(char **tab, t_na *st)
 	}
 }
 
-void	ft_parcing_2(char **tab, t_na *st)
+void	ft_parcing_2(char **tab)
 {
 	int	i;
 	int	j;

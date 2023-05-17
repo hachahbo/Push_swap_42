@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 16:05:36 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 16:35:51 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 15:49:30 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,18 @@ void	error_help(int a)
 	exit(-1);
 }
 
-void	ft_check_sort(t_stack *head)
+void	ft_check_sort(t_stack *head_a, t_stack *head_b)
 {
 	t_stack	*head1;
 	int		i;
 
 	i = 0;
-	head1 = head;
+	head1 = head_a;
+	if (!head1)
+	{
+		ft_printf("KO\n");
+		exit(0);
+	}
 	while (head1->next)
 	{
 		if (head1->content > head1->next->content)
@@ -35,7 +40,7 @@ void	ft_check_sort(t_stack *head)
 		}
 		head1 = head1->next;
 	}
-	if (i == 1)
+	if (i == 1 || head_b)
 		ft_printf("KO\n");
 	else
 		ft_printf("OK\n");
@@ -60,7 +65,7 @@ void	printlist(t_stack *list)
 {
 	while (list)
 	{
-		ft_printf("stack a |%d|\n", list->content);
+		ft_printf("aaastack a |%d|\n", list->content);
 		list = list->next;
 	}
 }

@@ -6,13 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:33:52 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:33:36 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_beta_parcing(char **tab, t_ac *st)
+void	ft_beta_parcing(char **tab, int size)
 {
 	int	j;
 
@@ -26,6 +26,8 @@ void	ft_beta_parcing(char **tab, t_ac *st)
 			ft_error(tab);
 		j++;
 	}
+	if (size == 1)
+		exit(0);
 }
 
 void	check_f(char **av)
@@ -50,13 +52,15 @@ int	*tableau(char **av, int ac, t_ac *st)
 
 	check_f(av);
 	str = join_to_str(av, ac);
-	t = (int *)malloc(ac * sizeof(int));
 	ult_str = ft_split(str, ' ');
-	free(str);
 	st->size = ft_size(ult_str);
-	ft_beta_parcing(ult_str, st);
-	if (st->size == 1)
-		exit(0);
+	t = (int *)malloc(st->size * sizeof(int));
+	if (!t)
+	{
+		free(t);
+		return (NULL);
+	}
+	ft_beta_parcing(ult_str, st->size);
 	i = 0;
 	ft_parcing(ult_str, st);
 	while (ult_str[i])
@@ -64,6 +68,13 @@ int	*tableau(char **av, int ac, t_ac *st)
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
-	ft_free(ult_str);
-	return (t);
+	return (free(str), ft_free(ult_str), t);
+}
+
+void	free_sort(int *tab, int *arr, t_stack *head_a)
+{
+	free(tab);
+	free(arr);
+	ft_lstclear(&head_a);
+	exit(0);
 }

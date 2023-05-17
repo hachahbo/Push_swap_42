@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:20:57 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:44:33 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:12:53 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	ft_rra_a(t_stack **head);
 void	ft_rrb_b(t_stack **head);
 void	sort_list(t_stack **head);
 void	index_sort_list(t_stack *head);
-void	ft_parcing_1(char **tab, t_ac *st);
-void	ft_parcing_2(char **tab, t_ac *st);
+void	ft_parcing_1(char **tab);
+void	ft_parcing_2(char **tab);
 void	ft_parcing_3(char **tab);
 void	fill_the_position_array(t_list *val, t_ac *st);
 int		*fill_the_size(int *size, t_ac *st);
@@ -113,5 +113,7 @@ void	ft_mark_two(t_stack **a, t_stack **b, t_stack *first, t_ac *fel);
 void	ft_mark_zero(t_stack **a, t_stack **b, t_stack *first, t_ac *fel);
 int		ft_check_the_top(t_stack *stack_a, int m);
 void	ft_check_pos(t_stack *elem, int size, int x, int j);
+void	ft_lstclear(t_stack **lst);
+void	free_sort(int *tab, int *arr, t_stack *head_a);
 
 #endif

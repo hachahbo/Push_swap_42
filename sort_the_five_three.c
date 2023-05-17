@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 13:33:26 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/01 15:33:33 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:08:34 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ int	sort_the_three(t_stack **head)
 
 	min = find_small((*head));
 	max = find_big((*head));
-	help = (*head)->next;
+	help = *head;
+	sum = 0;
 	while (help)
 	{
 		sum = sum + help->content;
@@ -97,10 +98,8 @@ int	check_five_three(t_stack **head_a, t_stack **head_b, t_ac *st)
 	if (st->size <= 3)
 	{
 		sort_the_three(head_a);
-		printlist(*head_a);
 		exit(0);
 	}
 	sort_the_five(head_a, head_b);
-	printlist(*head_a);
 	exit(0);
 }

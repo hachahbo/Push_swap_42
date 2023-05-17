@@ -6,13 +6,13 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 13:29:23 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:53:10 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:10:15 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ft_beta_parcing(char **tab, t_na *st)
+void	ft_beta_parcing(char **tab)
 {
 	int	j;
 
@@ -67,22 +67,21 @@ int	*tableau(char **av, int ac, t_na *st)
 	ult_str = ft_split(str, ' ');
 	st->size = ft_size(ult_str);
 	free(str);
-	ft_beta_parcing(ult_str, st);
-	if (st->size == 1)
-		exit(0);
+	ft_beta_parcing(ult_str);
 	i = 0;
-	ft_parcing(ult_str, st);
 	while (ult_str[i])
 	{
 		t[i] = ft_atoi(ult_str[i]);
 		i++;
 	}
+	ft_parcing(ult_str, st);
 	ft_free(ult_str);
 	return (t);
 }
 
 void	ft_error(char **tab)
 {
-	printf("Error\n");
+	ft_printf("Error\n");
+	free_2d(tab);
 	exit(-1);
 }

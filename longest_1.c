@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 16:20:42 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:06:59 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 00:41:41 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	*fill_the_longest_array(t_list *val, int *arr, int i, int *t)
 	j = 0;
 	k = 0;
 	longest = (int *)malloc(sizeof(int) * t[0]);
+	if (!longest)
+		return (free(longest), NULL);
 	x = t[0] - 1;
 	longest[x] = arr[i];
 	j = val->pos[i];
@@ -93,8 +95,7 @@ int	*fill_the_longest_array(t_list *val, int *arr, int i, int *t)
 	}
 	x--;
 	longest[x] = arr[j];
-	free(arr);
-	return (longest);
+	return (free(arr), longest);
 }
 
 int	*the_array(int *arr, t_list *val, t_ac *st)
@@ -106,6 +107,11 @@ int	*the_array(int *arr, t_list *val, t_ac *st)
 	int	t[2];
 
 	size = malloc(sizeof(int) *(st->size));
+	if (!size)
+	{
+		free(size);
+		return (NULL);
+	}
 	size = fill_the_size(size, st);
 	fill_the_position_array(val, st);
 	size = fill__size_and_pos_array(val, arr, size, st);

@@ -6,14 +6,14 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 10:27:11 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/05 15:58:12 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/16 12:38:21 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Werror -Wall -Werror
+CFLAGS = -Werror -Wall -Wextra
 
 OBJS = rotation.o swap.o reverse_rotation.o push.o push_swap.o \
 		ft_change_the_type_1.o move_to_stack_b.o longest_1.o\
@@ -32,7 +32,6 @@ all : $(NAME)
 		@echo "██║░░░░░╚██████╔╝██████╔╝██║░░██║██████╔╝░░╚██╔╝░╚██╔╝░██║░░██║██║░░░░░"
 		@echo "╚═╝░░░░░░╚═════╝░╚═════╝░╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═╝░░░░░"
 		@echo "																		  "
-#$(NAME):$(OBJS)
 
 $(NAME) : $(OBJS)
 	@cd libft && make 
@@ -51,8 +50,8 @@ clean :
 
 fclean : clean
 	@$(RM) checker
-	@$(RM) $(NAME)
 	@cd libft && make fclean
 	@cd ft_printf && make fclean
+	@$(RM) $(NAME)
 	
 re : fclean all

@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:55:30 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 15:51:37 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/15 23:05:39 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	ft_parcing(char **tab, t_na *st)
 	int		i;
 	int		*arr;
 
-	ft_parcing_1(tab, st);
-	ft_parcing_2(tab, st);
+	ft_parcing_1(tab);
+	ft_parcing_2(tab);
 	ft_parcing_3(tab);
 	arr = malloc(sizeof(int) * st->size);
 	i = 0;

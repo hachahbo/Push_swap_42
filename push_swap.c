@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:18:09 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 16:42:34 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 12:46:16 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_lstclear(t_stack **lst)
 	*lst = NULL;
 }
 
-int	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
+void	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 {
 	t_ac	st;
 	t_stack	*longest;
@@ -78,8 +78,11 @@ int	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 	int		*tab;
 
 	val.pos = (int *) malloc (sizeof(int ) * ac -1);
+	ft_check_val(val.pos);
 	tab = tableau(av, ac, &st);
 	make_list(&head_a, tab, st.size);
+	if (first_check_is_sort(head_a))
+		free_sort(tab, val.pos, head_a);
 	if (st.size <= 5)
 		check_five_three(&head_a, &head_b, &st);
 	tab = the_array(tab, &val, &st);
@@ -88,15 +91,10 @@ int	ft_push_swap(t_stack *head_a, t_stack *head_b, int ac, char **av)
 	make_list(&longest, tab, val.max_longest);
 	free(tab);
 	mv_t_sb(&head_b, &head_a, longest, &st);
-	while (longest)
-	{
-		free(longest);
-		longest = longest->next;
-	}
+	ft_free_st(longest);
 	move_to_stack_a(&head_a, &head_b);
 	ft_sort_the_stack_a(&head_a);
 	ft_lstclear(&head_a);
-	return (0);
 }
 
 int	main(int ac, char **av)
@@ -109,6 +107,6 @@ int	main(int ac, char **av)
 	head_a = NULL;
 	head_b = NULL;
 	ft_push_swap(head_a, head_b, ac, av);
-	ft_lstclear(&head_a);
+	head_a = NULL;
 	return (0);
 }

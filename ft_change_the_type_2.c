@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 16:47:55 by hachahbo          #+#    #+#             */
-/*   Updated: 2023/05/04 01:56:46 by hachahbo         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:21:17 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*join_to_str(char **av, int ac)
 	i = 1;
 	while (i < ac)
 	{
-		if (av[i] == '\0')
+		if (av[i] == 0)
 		{
 			ft_printf("Error\n");
 			exit(0);

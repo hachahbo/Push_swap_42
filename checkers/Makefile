@@ -6,14 +6,14 @@
 #    By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/27 11:38:17 by hachahbo          #+#    #+#              #
-#    Updated: 2023/05/04 16:39:36 by hachahbo         ###   ########.fr        #
+#    Updated: 2023/05/17 15:02:12 by hachahbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = checker
 NAME_BONUS = checker
 CC = cc
-CFLAGS = -Werror -Wall -Werror
+CFLAGS = -Werror -Wall -Wextra
 
 OBJS = ft_checker.o rotation.o swap.o reverse_rotation.o push.o \
 		ft_change_the_type_1.o ft_parcing.o  ft_change_the_type_2.o \
@@ -32,8 +32,10 @@ $(NAME) : $(OBJS)
 $(OBJS) : checker.h
 clean :
 	@$(RM) $(OBJS)
-
+	@cd ../libft && make clean
+	@cd ../ft_printf && make clean
 fclean : clean
 	@$(RM) $(NAME)
-	
+	@cd ../libft && make fclean
+	@cd ../ft_printf && make fclean	
 re : fclean all 
